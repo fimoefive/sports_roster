@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import StudentCard from '../components/PlayerCard';
+import PlayerCard from '../components/PlayerCard';
 // import { BrowserRouter as Router } from 'react-router-dom';
 // import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -8,7 +8,6 @@ import { getPlayers } from '../helpers/data/playerData';
 import PlayerForm from '../components/PlayerForm';
 // import Routes from '../helpers/Routes';
 import './App.scss';
-import PlayerCard from '../components/PlayerCard';
 
 function App() {
   const [players, setPlayers] = useState([]);
