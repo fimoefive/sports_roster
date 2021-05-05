@@ -1,37 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PlayerCard from '../components/PlayerCard';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import firebase from 'firebase/app';
+import 'firebase/auth';
+// import NavBar from '../components/NavBar';
+import { getPlayers } from '../helpers/data/playerData';
+import PlayerForm from '../components/PlayerForm';
+// import Routes from '../helpers/Routes';
 import './App.scss';
 
 function App() {
-  const [domWriting, setDomWriting] = useState('Nothing Here!');
+  const [players, setPlayers] = useState([]);
 
-  const handleClick = (e) => {
-    console.warn(`You clicked ${e.target.id}`);
-    setDomWriting(`You clicked ${e.target.id}! Check the Console!`);
-  };
+  useEffect(() => {
+    getPlayers().then((resp) => setPlayers(resp));
+  }, []);
 
   return (
-    <div className='App'>
-      <h2>INSIDE APP COMPONENT</h2>
-      <div>
-        <button
-          id='this-button'
-          className='btn btn-info'
-          onClick={handleClick}
-        >
-          I am THIS button
-        </button>
+    <>
+      <div className='App'>
+        <h2>Basketball Roster</h2>
+        <PlayerForm formTitle='Form Title' />
+        <hr />
+        {players.map((playerInfo) => (
+          <PlayerCard
+            key={playerInfo.firebaseKey}
+            imageUrl={playerInfo.imageUrl}
+            name={playerInfo.name}
+            position={playerInfo.position}
+            handleClick={() => console.warn(`${playerInfo.name} position is ${playerInfo.position}`)}
+          ></PlayerCard>
+        ))}
       </div>
-      <div>
-        <button
-          id='that-button'
-          className='btn btn-primary mt-3'
-          onClick={handleClick}
-        >
-          I am THAT button
-        </button>
-      </div>
-      <h3>{domWriting}</h3>
-    </div>
+    </>
   );
 }
 

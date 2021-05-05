@@ -1,0 +1,58 @@
+{
+  "-MZtc0fRGzvfD0v4sdWC": {
+    "firebaseKey": "-MZtc0fRGzvfD0v4sdWC",
+    "imageUrl": "Noble",
+    "name": "Gonzalo",
+    "position": "Center",
+    "uid": "serial num"
+  },
+  "-MZtc0fS-kHFUwjriaPz": {
+    "firebaseKey": "-MZtc0fS-kHFUwjriaPz",
+    "imageUrl": "Frasquito",
+    "name": "Lennie",
+    "position": "Power Forward",
+    "uid": "serial num"
+  },
+  "-MZtc0fTKfk2FiofCVv3": {
+    "firebaseKey": "-MZtc0fTKfk2FiofCVv3",
+    "imageUrl": "Hernando",
+    "name": "Humfrid",
+    "position": "Point Guard",
+    "uid": "serial num"
+  },
+  "-MZtc0fVUnEcmvR_dKLQ": {
+    "firebaseKey": "-MZtc0fVUnEcmvR_dKLQ",
+    "imageUrl": "Ekaterina",
+    "name": "Alfons",
+    "position": "Shooting Gaurd",
+    "uid": "serial num"
+  },
+  "-MZtc0fWZV2XKUS3A1wx": {
+    "firebaseKey": "-MZtc0fWZV2XKUS3A1wx",
+    "imageUrl": "Kameko",
+    "name": "Tann",
+    "position": "Small Forward",
+    "uid": "serial num"
+  },
+  "-MZtc0fXb-BOgZPsdN3L": {
+    "firebaseKey": "-MZtc0fXb-BOgZPsdN3L",
+    "imageUrl": "Neal",
+    "name": "Myles",
+    "position": "Center",
+    "uid": "serial num"
+  },
+  "-MZtc0fYb5WOOX9jrAOY": {
+    "firebaseKey": "-MZtc0fYb5WOOX9jrAOY",
+    "imageUrl": "Petr",
+    "name": "Tore",
+    "position": "Power Forward",
+    "uid": "serial num"
+  },
+  "-MZtc0fZtCvdLwGj4aQs": {
+    "firebaseKey": "-MZtc0fZtCvdLwGj4aQs",
+    "imageUrl": "Glen",
+    "name": "Gallard",
+    "position": "Point Guard",
+    "uid": "serial num"
+  }
+}
