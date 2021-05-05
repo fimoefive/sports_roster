@@ -8,7 +8,7 @@ import {
   CardText,
   CardTitle
 } from 'reactstrap';
-// import { deleteStudent } from '../helpers/data/playerData';
+// import { deletePlayer } from '../helpers/data/playerData';
 // import PlayerForm from './PlayerForm';
 
 const PlayerCard = ({
