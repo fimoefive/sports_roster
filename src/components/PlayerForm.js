@@ -35,9 +35,9 @@ const PlayerForm = ({ formTitle }) => {
       >
         <h2>{formTitle}</h2>
         <div>
-          <label>Picture</label>
+          <label>Picture: </label>
           <input
-            name='image'
+            name='imageUrl'
             value={player.imageUrl}
             type='text'
             placeholder='Enter a Picture URL'
@@ -46,7 +46,7 @@ const PlayerForm = ({ formTitle }) => {
         </div>
 
         <div>
-          <label>Name:</label>
+          <label>Name: </label>
           <input
             name='name'
             value={player.name}
@@ -57,7 +57,7 @@ const PlayerForm = ({ formTitle }) => {
         </div>
 
         <div>
-          <label>Position:</label>
+          <label>Position: </label>
           <input
             name='position'
             value={player.position}
