@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -6,7 +6,6 @@ import {
   CardBody,
   CardImg,
   CardText,
-  imageUrl,
   CardTitle
 } from 'reactstrap';
 // import { deleteStudent } from '../helpers/data/playerData';
@@ -19,11 +18,18 @@ const PlayerCard = ({
   handleClick
 }) => {
   <CardBody>
-    <CardTitle tag="h5">{name}</CardTitle>
     <CardImg>{imageUrl}</CardImg>
+    <CardTitle tag="h5">{name}</CardTitle>
     <CardText>Position: {position}</CardText>
-    {handleClick ? <Button onClick={handleClick}>Print Student</Button> : ''}
-  </CardBody>
+    {handleClick ? <Button onClick={handleClick}>Print Player</Button> : ''}
+  </CardBody>;
+};
 
-}
-}
+PlayerCard.PropTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  handleClick: PropTypes.func
+};
+
+export default PlayerCard;
