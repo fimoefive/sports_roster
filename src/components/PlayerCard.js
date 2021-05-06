@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {
   Button,
   CardBody,
-  CardImg,
   CardText,
   CardTitle
 } from 'reactstrap';
@@ -41,7 +40,7 @@ const PlayerCard = ({
 
   return (
     <CardBody>
-      <CardImg>{imageUrl}</CardImg>
+      <img src={imageUrl} />
       <CardTitle tag="h5">{name}</CardTitle>
       <CardText>Position: {position}</CardText>
       {/* {handleClick ? <Button onClick={handleClick}>Delete Player</Button> : ''} */}

@@ -22,4 +22,4 @@ SinglePlayer.PropTypes = {
   id: PropTypes.string
 };
 
-export default SinglePlayer;
+// export default SinglePlayer;

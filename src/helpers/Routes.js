@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AddPlayer from '../views/AddPlayer';
 import Home from '../views/Home';
 import Players from '../views/Players';
-import SinglePlayer from '../views/SinglePlayer';
+// import SinglePlayer from '../views/SinglePlayer';
 
 function Routes({ user, players, setPlayers }) {
   return (
@@ -15,7 +15,7 @@ function Routes({ user, players, setPlayers }) {
           <Route path='/players'
             component={() => <Players players={players} setPlayers={setPlayers} />}
           />
-          <Route path='/player/:id' component={SinglePlayer} />
+          {/* <Route path='/player/:id' component={SinglePlayer} /> */}
           <Route path='/add-player'
             component={() => <AddPlayer setPlayers={setPlayers} />}
           />
