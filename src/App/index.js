@@ -18,18 +18,22 @@ function App() {
 
   return (
     <>
-      <div className='App'>
-        <h2>Basketball Roster</h2>
-        <PlayerForm formTitle='Form Title' />
-        <hr />
+      {/* <div className='App'> */}
+      <h2>Basketball Roster</h2>
+      <PlayerForm formTitle='Add Player' setPlayers={setPlayers} />
+      <hr />
+      <div className="player-card">
         {players.map((playerInfo) => (
           <PlayerCard
             key={playerInfo.firebaseKey}
-            imageUrl={playerInfo.imageUrl}
-            name={playerInfo.name}
-            position={playerInfo.position}
-            handleClick={() => console.warn(`${playerInfo.name} position is ${playerInfo.position}`)}
-          ></PlayerCard>
+            setPlayers={setPlayers}
+            {...playerInfo}
+          // firebaseKey={playerInfo.firebaseKey}
+          // imageUrl={playerInfo.imageUrl}
+          // name={playerInfo.name}
+          // position={playerInfo.position}
+          // handleClick={() => console.warn(`${playerInfo.name} position is ${playerInfo.position}`)}
+          />
         ))}
       </div>
     </>
