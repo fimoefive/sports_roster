@@ -13,6 +13,7 @@ function Players({ players, setPlayers }) {
             imageUrl={playerInfo.imageUrl}
             name={playerInfo.name}
             position={playerInfo.position}
+            setPlayers={setPlayers}
           />
         ))}
       </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Collapse,
-  NavBar,
+  Navbar,
   NavbarToggler,
   Nav,
   NavItem,
@@ -17,15 +17,15 @@ const NavBar = () => {
     <>
       <div>
         <Navbar color="light" light expand="md">
-          <Link className="navbar-brand" to="/">React</Link>
+          <Link className="navbar-brand" to="/">Main</Link>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <Link className="nav-link" to="/add-student">Add Student</Link>
+                <Link className="nav-link" to="/add-player">Add Player</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/students">Student Cards</Link>
+                <Link className="nav-link" to="/players">Player Cards</Link>
               </NavItem>
             </Nav>
           </Collapse>

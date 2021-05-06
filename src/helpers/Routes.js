@@ -12,7 +12,7 @@ function Routes({ players, setPlayers }) {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/players'
-            component={() => <Players setPlayers={setPlayers} />}
+            component={() => <Players players={players} setPlayers={setPlayers} />}
           />
           <Route path='/add-player'
             component={() => <AddPlayer setPlayers={setPlayers} />}
