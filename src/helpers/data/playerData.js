@@ -32,7 +32,14 @@ const updatePlayer = (firebaseKey, obj) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSinglePlayer = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/players/${firebaseKey}.json`)
+    .then((player) => resolve(player.data))
+    .catch((error) => reject(error));
+});
+
 export {
   getPlayers, addPlayer,
-  deletePlayer, updatePlayer
+  deletePlayer, updatePlayer,
+  getSinglePlayer
 };

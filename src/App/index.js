@@ -5,9 +5,6 @@ import 'firebase/auth';
 import NavBar from '../components/NavBar';
 import { getPlayers } from '../helpers/data/playerData';
 import Routes from '../helpers/Routes';
-// import PlayerCard from '../components/PlayerCard';
-// import PlayerForm from '../components/PlayerForm';
-
 import './App.scss';
 
 function App() {
