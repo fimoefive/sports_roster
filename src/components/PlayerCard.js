@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Button,
@@ -11,14 +11,21 @@ import {
 import { deletePlayer } from '../helpers/data/playerData';
 import PlayerForm from './PlayerForm';
 
-const PlayerCard = ({ setPlayers, ...player }) => {
+const PlayerCard = ({
+  firebaseKey,
+  imageUrl,
+  name,
+  position,
+  setPlayers
+}) => {
   const [editing, setEditing] = useState(false);
+  const history = useHistory();
 
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deletePlayer(player.firebaseKey)
-          .then((playerArray) => setPlayers(playerArray));
+        deletePlayer(firebaseKey)
+          .then(setPlayers);
         break;
       case 'edit':
         setEditing((prevState) => !prevState);
@@ -28,12 +35,17 @@ const PlayerCard = ({ setPlayers, ...player }) => {
     }
   };
 
+  function viewPlayer() {
+    history.push('/player/$(firebaseKey)');
+  }
+
   return (
     <CardBody>
-      <CardImg>{player.imageUrl}</CardImg>
-      <CardTitle tag="h5">{player.name}</CardTitle>
-      <CardText>Position: {player.position}</CardText>
+      <CardImg>{imageUrl}</CardImg>
+      <CardTitle tag="h5">{name}</CardTitle>
+      <CardText>Position: {position}</CardText>
       {/* {handleClick ? <Button onClick={handleClick}>Delete Player</Button> : ''} */}
+      <Button color="warning" onClick={viewPlayer}>View Player</Button>
       <Button color="danger" onClick={() => handleClick('delete')}>Delete Player</Button>
       <Button color="info" onClick={() => handleClick('edit')}>
         {editing ? 'CloseForm' : 'Edit Player'}
@@ -42,7 +54,10 @@ const PlayerCard = ({ setPlayers, ...player }) => {
         editing && <PlayerForm
           formTitle='Edit Player'
           setPlayers={setPlayers}
-          {...player}
+          firebaseKey={firebaseKey}
+          imageUrl={imageUrl}
+          name={name}
+          position={position}
         />
       }
     </CardBody>
