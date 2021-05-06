@@ -1,37 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import PlayerCard from '../components/PlayerCard';
-// import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 // import firebase from 'firebase/app';
-import 'firebase/auth';
-// import NavBar from '../components/NavBar';
+// import 'firebase/auth';
+import NavBar from '../components/NavBar';
 import { getPlayers } from '../helpers/data/playerData';
-import PlayerForm from '../components/PlayerForm';
-// import Routes from '../helpers/Routes';
+import Routes from '../helpers/Routes';
 import './App.scss';
 
 function App() {
   const [players, setPlayers] = useState([]);
+  // const [user, setUser] = useState(null);
 
   useEffect(() => {
-    getPlayers().then((resp) => setPlayers(resp));
+    getPlayers().then(setPlayers);
   }, []);
+
+  // useEffect(() => {
+  //   firebase.auth().onAuthStateChanged((authed) => {
+  //     if (authed) {
+  //       const userInfoObj = {
+  //         fullName: authed.displayName,
+  //         profileImage: authed.photoURL,
+  //         uid: authed.uid,
+  //         username: authed.email.split('@')[0]
+  //       };
+  //       setUser(userInfoObj);
+  //     } else if (user || user === null) {
+  //       setUser(false);
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>
-      <div className='App'>
-        <h2>Basketball Roster</h2>
-        <PlayerForm formTitle='Form Title' />
-        <hr />
-        {players.map((playerInfo) => (
-          <PlayerCard
-            key={playerInfo.firebaseKey}
-            imageUrl={playerInfo.imageUrl}
-            name={playerInfo.name}
-            position={playerInfo.position}
-            handleClick={() => console.warn(`${playerInfo.name} position is ${playerInfo.position}`)}
-          ></PlayerCard>
-        ))}
-      </div>
+      {/* <div className='App'> */}
+      <h2>Basketball Roster</h2>
+      <Router>
+        <NavBar />
+        <Routes
+          // user={user}
+          players={players}
+          setPlayers={setPlayers}
+        />
+      </Router>
     </>
   );
 }

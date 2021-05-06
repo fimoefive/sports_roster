@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-// import {
-//   Button, Form, FormGroup, Label, Input
-// } from 'reactstrap';
+import {
+  Button, Form, FormGroup, Label, Input
+} from 'reactstrap';
 import PropTypes from 'prop-types';
-import { addPlayer } from '../helpers/data/playerData';
+import { addPlayer, updatePlayer } from '../helpers/data/playerData';
 
-const PlayerForm = ({ formTitle }) => {
+const PlayerForm = ({
+  formTitle,
+  setPlayers,
+  imageUrl,
+  name,
+  position,
+  firebaseKey
+}) => {
   const [player, setPlayer] = useState({
-    imageUrl: '',
-    name: '',
-    position: ''
+    imageUrl: imageUrl || '',
+    name: name || '',
+    position: position || '',
+    firebaseKey: firebaseKey || null,
   });
 
   const handleInputChange = (e) => {
@@ -22,59 +30,83 @@ const PlayerForm = ({ formTitle }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // add a player to firebase
-    addPlayer(player);
+    if (player.firebaseKey) {
+      // makes a call to update player and renders to the dom
+      // Long Hand
+      // updatePlayer(player).then((playerArray) => setPlayers(playerArray));
+      // Short Hand
+      updatePlayer(player).then(setPlayers);
+    } else {
+      // add a player to firebase
+      // Long Hand
+      // addPlayer(player).then((playerArray) => setPlayers(playerArray));
+      // Short Hand
+      addPlayer(player).then(setPlayers);
+
+      // Clears Input fields
+      setPlayer({
+        imageUrl: '',
+        name: '',
+        position: '',
+        firebaseKey: null
+      });
+    }
   };
 
   return (
-    <div className='student-form'>
-      <form
+    <div className='player-form'>
+      <Form
         id='addStudentForm'
         autoComplete='off'
         onSubmit={handleSubmit}
       >
         <h2>{formTitle}</h2>
-        <div>
-          <label>Picture: </label>
-          <input
+        <FormGroup>
+          <Label for="imageUrl">Picture: </Label>
+          <Input
             name='imageUrl'
             value={player.imageUrl}
             type='text'
             placeholder='Enter a Picture URL'
             onChange={handleInputChange}
           />
-        </div>
+        </FormGroup>
 
-        <div>
-          <label>Name: </label>
-          <input
+        <FormGroup>
+          <Label for="name">Name: </Label>
+          <Input
             name='name'
             value={player.name}
             type='text'
             placeholder='Enter a Player Name'
             onChange={handleInputChange}
           />
-        </div>
+        </FormGroup>
 
-        <div>
-          <label>Position: </label>
-          <input
+        <FormGroup>
+          <Label>Position: </Label>
+          <Input
             name='position'
             value={player.position}
             type='text'
             placeholder='Enter a Player Position'
             onChange={handleInputChange}
           />
-        </div>
+        </FormGroup>
 
-        <button type='submit'>Submit</button>
-      </form>
+        <Button type='submit'>Submit</Button>
+      </Form>
     </div>
   );
 };
 
 PlayerForm.propTypes = {
-  formTitle: PropTypes.string.isRequired
+  formTitle: PropTypes.string.isRequired,
+  setPlayers: PropTypes.func.isRequired,
+  imageUrl: PropTypes.string,
+  name: PropTypes.string,
+  position: PropTypes.string,
+  firebaseKey: PropTypes.string
 };
 
 export default PlayerForm;
