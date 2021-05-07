@@ -71,6 +71,7 @@ const PlayerForm = ({
           <Label for="imageUrl">Picture: </Label>
           <Input
             name='imageUrl'
+            id='imageUrl'
             value={player.imageUrl}
             type='text'
             placeholder='Enter a Picture URL'
@@ -82,6 +83,7 @@ const PlayerForm = ({
           <Label for="name">Name: </Label>
           <Input
             name='name'
+            id='name'
             value={player.name}
             type='text'
             placeholder='Enter a Player Name'
@@ -93,6 +95,7 @@ const PlayerForm = ({
           <Label>Position: </Label>
           <Input
             name='position'
+            id='position'
             value={player.position}
             type='text'
             placeholder='Enter a Player Position'
