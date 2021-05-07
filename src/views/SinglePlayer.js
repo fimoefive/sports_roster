@@ -5,10 +5,10 @@ import { getSinglePlayer } from '../helpers/data/playerData';
 
 function SinglePlayer() {
   const [player, setPlayer] = useState({});
-  const { id } = useParams;
+  const { firebaseKey } = useParams();
 
   useEffect(() => {
-    getSinglePlayer(id).then(setPlayer);
+    getSinglePlayer(firebaseKey).then(setPlayer);
   }, []);
 
   return (
@@ -19,7 +19,7 @@ function SinglePlayer() {
 }
 
 SinglePlayer.PropTypes = {
-  id: PropTypes.string
+  firebaseKey: PropTypes.string
 };
 
-// export default SinglePlayer;
+export default SinglePlayer;

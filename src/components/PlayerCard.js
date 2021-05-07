@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import {
   Button,
   CardBody,
   CardText,
   CardTitle
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 import { deletePlayer } from '../helpers/data/playerData';
 import PlayerForm from './PlayerForm';
 
