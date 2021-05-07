@@ -34,7 +34,7 @@ function App() {
     <>
       {/* <div className='App'> */}
       <h2>Basketball Roster</h2>
-      <NavBar />
+      <NavBar user={user} />
       <Routes
         players={players}
         setPlayers={setPlayers}
