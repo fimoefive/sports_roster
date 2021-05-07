@@ -34,7 +34,7 @@ const updatePlayer = (obj) => new Promise((resolve, reject) => {
 
 const getSinglePlayer = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/players/${firebaseKey}.json`)
-    .then((player) => resolve(player.data))
+    .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
 

@@ -56,7 +56,7 @@ const PlayerForm = ({
   return (
     <div className='player-form'>
       <Form
-        id='addStudentForm'
+        id='addPlayerForm'
         autoComplete='off'
         onSubmit={handleSubmit}
       >
@@ -102,7 +102,7 @@ const PlayerForm = ({
 
 PlayerForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
-  setPlayers: PropTypes.func.isRequired,
+  setPlayers: PropTypes.func,
   imageUrl: PropTypes.string,
   name: PropTypes.string,
   position: PropTypes.string,
