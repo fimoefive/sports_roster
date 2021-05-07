@@ -12,7 +12,7 @@ function Routes({ players, setPlayers }) {
     <>
       <div>
         <Switch>
-          <Route exact path='/' component={() => <Home />} />
+          <Route exact path='/' component={Home} />
           <Route
             exact
             path='/players'

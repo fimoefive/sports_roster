@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import SinglePlayer from '../views/SinglePlayer';
 
 function SinglePlayerCard({ children, player }) {
   return (
