@@ -29,14 +29,13 @@ const PlayerCard = ({
       case 'edit':
         setEditing((prevState) => !prevState);
         break;
+      case 'view':
+        history.push(`/players/${firebaseKey}`);
+        break;
       default:
         console.warn('nothing selected');
     }
   };
-
-  function viewPlayer() {
-    history.push('/player/$(firebaseKey)');
-  }
 
   return (
     <CardBody>
@@ -44,7 +43,7 @@ const PlayerCard = ({
       <CardTitle tag="h5">{name}</CardTitle>
       <CardText>Position: {position}</CardText>
       {/* {handleClick ? <Button onClick={handleClick}>Delete Player</Button> : ''} */}
-      <Button color="warning" onClick={viewPlayer}>View Player</Button>
+      <Button color="warning" onClick={() => handleClick('view')}>View Player</Button>
       <Button color="danger" onClick={() => handleClick('delete')}>Delete Player</Button>
       <Button color="info" onClick={() => handleClick('edit')}>
         {editing ? 'CloseForm' : 'Edit Player'}

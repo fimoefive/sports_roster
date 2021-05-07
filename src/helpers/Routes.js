@@ -5,13 +5,14 @@ import AddPlayer from '../views/AddPlayer';
 import Home from '../views/Home';
 import Players from '../views/Players';
 import SinglePlayer from '../views/SinglePlayer';
+import NotFound from '../views/NotFound';
 
-function Routes({ user, players, setPlayers }) {
+function Routes({ players, setPlayers }) {
   return (
     <>
       <div>
         <Switch>
-          <Route exact path='/' component={() => <Home user={user} />} />
+          <Route exact path='/' component={() => <Home />} />
           <Route
             exact
             path='/players'
@@ -21,6 +22,7 @@ function Routes({ user, players, setPlayers }) {
           <Route path='/add-player'
             component={() => <AddPlayer setPlayers={setPlayers} />}
           />
+          <Route path='*' component={NotFound} />
         </Switch>
       </div>
     </>
@@ -30,7 +32,6 @@ function Routes({ user, players, setPlayers }) {
 Routes.propTypes = {
   players: PropTypes.array.isRequired,
   setPlayers: PropTypes.func.isRequired,
-  user: PropTypes.any
 };
 
 export default Routes;

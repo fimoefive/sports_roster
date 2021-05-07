@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
@@ -28,6 +29,8 @@ const PlayerForm = ({
     }));
   };
 
+  const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (player.firebaseKey) {
@@ -41,7 +44,10 @@ const PlayerForm = ({
       // Long Hand
       // addPlayer(player).then((playerArray) => setPlayers(playerArray));
       // Short Hand
-      addPlayer(player).then(setPlayers);
+      addPlayer(player).then((response) => {
+        setPlayers(response);
+        history.push('/players');
+      });
 
       // Clears Input fields
       setPlayer({
