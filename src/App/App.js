@@ -36,6 +36,7 @@ function App() {
       <h2>Basketball Roster</h2>
       <NavBar user={user} />
       <Routes
+        user={user}
         players={players}
         setPlayers={setPlayers}
       />
