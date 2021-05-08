@@ -30,7 +30,6 @@ function Routes({ user, players, setPlayers }) {
       <div>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/not-found' component={NotFound} />
           <PrivateRoute
             exact
             path='/players'
@@ -46,7 +45,7 @@ function Routes({ user, players, setPlayers }) {
             path='/add-player'
             component={() => <AddPlayer setPlayers={setPlayers} />}
           />
-          <PrivateRoute path='*' component={NotFound} />
+          <Route path='*' component={NotFound} />
         </Switch>
       </div>
     </>
