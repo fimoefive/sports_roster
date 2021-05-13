@@ -40,7 +40,7 @@ const PlayerCard = ({
   };
 
   return (
-    <CardBody body className="card text-center" key={firebaseKey} id={uid}>
+    <CardBody body="true" className="card text-center" key={firebaseKey} id={uid}>
       <img src={imageUrl} />
       <CardTitle tag="h5">{name}</CardTitle>
       <CardText>Position: {position}</CardText>
