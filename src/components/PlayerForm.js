@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
-import PropTypes from 'prop-types';
 import { addPlayer, updatePlayer } from '../helpers/data/playerData';
 
 const PlayerForm = ({
@@ -13,21 +13,22 @@ const PlayerForm = ({
   name,
   position,
   firebaseKey,
-  uid
+  user,
+  uid,
 }) => {
   const [player, setPlayer] = useState({
     imageUrl: imageUrl || '',
     name: name || '',
     position: position || '',
     firebaseKey: firebaseKey || null,
-    uid
+    uid: uid || user.uid
   });
 
   const handleInputChange = (e) => {
     setPlayer((prevState) => ({
       ...prevState,
-      [e.target.name]:
-        e.target.name === 'position' ? (e.target.value) : e.target.value,
+      [e.target.name]: e.target.value,
+      // e.target.name === 'position' ? (e.target.value) : e.target.value,
     }));
   };
 
@@ -38,15 +39,15 @@ const PlayerForm = ({
     if (player.firebaseKey) {
       // makes a call to update player and renders to the dom
       // Long Hand
-      // updatePlayer(player).then((playerArray) => setPlayers(playerArray));
+      updatePlayer(player, user).then((playerArray) => setPlayers(playerArray));
       // Short Hand
-      updatePlayer(player).then(setPlayers);
+      // updatePlayer(player, user).then(setPlayers);
     } else {
       // add a player to firebase
       // Long Hand
       // addPlayer(player).then((playerArray) => setPlayers(playerArray));
       // Short Hand
-      addPlayer(player).then((response) => {
+      addPlayer(player, user).then((response) => {
         setPlayers(response);
         history.push('/players');
       });
@@ -118,7 +119,8 @@ PlayerForm.propTypes = {
   name: PropTypes.string,
   position: PropTypes.string,
   firebaseKey: PropTypes.string,
-  uid: PropTypes.string
+  uid: PropTypes.string,
+  user: PropTypes.any
 };
 
 export default PlayerForm;

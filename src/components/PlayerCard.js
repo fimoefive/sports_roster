@@ -11,6 +11,8 @@ import { deletePlayer } from '../helpers/data/playerData';
 import PlayerForm from './PlayerForm';
 
 const PlayerCard = ({
+  uid,
+  user,
   firebaseKey,
   imageUrl,
   name,
@@ -23,7 +25,7 @@ const PlayerCard = ({
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deletePlayer(firebaseKey)
+        deletePlayer(firebaseKey, user)
           .then(setPlayers);
         break;
       case 'edit':
@@ -38,7 +40,7 @@ const PlayerCard = ({
   };
 
   return (
-    <CardBody>
+    <CardBody body="true" className="card text-center" key={firebaseKey} id={uid}>
       <img src={imageUrl} />
       <CardTitle tag="h5">{name}</CardTitle>
       <CardText>Position: {position}</CardText>
@@ -51,11 +53,13 @@ const PlayerCard = ({
       {
         editing && <PlayerForm
           formTitle='Edit Player'
-          setPlayers={setPlayers}
+          uid={uid}
+          user={user}
           firebaseKey={firebaseKey}
           imageUrl={imageUrl}
           name={name}
           position={position}
+          setPlayers={setPlayers}
         />
       }
     </CardBody>
@@ -63,6 +67,8 @@ const PlayerCard = ({
 };
 
 PlayerCard.propTypes = {
+  uid: PropTypes.string.isRequired,
+  user: PropTypes.any,
   firebaseKey: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
