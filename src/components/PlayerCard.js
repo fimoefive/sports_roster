@@ -11,6 +11,8 @@ import { deletePlayer } from '../helpers/data/playerData';
 import PlayerForm from './PlayerForm';
 
 const PlayerCard = ({
+  uid,
+  user,
   firebaseKey,
   imageUrl,
   name,
@@ -51,11 +53,13 @@ const PlayerCard = ({
       {
         editing && <PlayerForm
           formTitle='Edit Player'
-          setPlayers={setPlayers}
+          uid={uid}
+          user={user}
           firebaseKey={firebaseKey}
           imageUrl={imageUrl}
           name={name}
           position={position}
+          setPlayers={setPlayers}
         />
       }
     </CardBody>
@@ -63,6 +67,8 @@ const PlayerCard = ({
 };
 
 PlayerCard.propTypes = {
+  uid: PropTypes.string,
+  user: PropTypes.any,
   firebaseKey: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

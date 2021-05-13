@@ -13,6 +13,7 @@ const PlayerForm = ({
   name,
   position,
   firebaseKey,
+  user,
   uid
 }) => {
   const [player, setPlayer] = useState({
@@ -20,7 +21,7 @@ const PlayerForm = ({
     name: name || '',
     position: position || '',
     firebaseKey: firebaseKey || null,
-    uid
+    uid: uid || user.uid
   });
 
   const handleInputChange = (e) => {
@@ -118,7 +119,8 @@ PlayerForm.propTypes = {
   name: PropTypes.string,
   position: PropTypes.string,
   firebaseKey: PropTypes.string,
-  uid: PropTypes.string
+  uid: PropTypes.string,
+  user: PropTypes.any
 };
 
 export default PlayerForm;
