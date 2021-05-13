@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PlayerCard from '../components/PlayerCard';
 
-function Players({ players, setPlayers }) {
+function Players({ user, players, setPlayers }) {
   return (
     <>
       <div className="card-container">
@@ -13,6 +13,8 @@ function Players({ players, setPlayers }) {
             imageUrl={playerInfo.imageUrl}
             name={playerInfo.name}
             position={playerInfo.position}
+            uid={playerInfo.uid}
+            user={user}
             setPlayers={setPlayers}
           />
         ))}
