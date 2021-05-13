@@ -21,7 +21,7 @@ function App() {
           fullName: authed.displayName,
           profileImage: authed.photoURL,
           uid: authed.uid,
-          username: authed.email.split('@')[0]
+          user: authed.email.split('@')[0]
         };
         setUser(userInfoObj);
       } else if (user || user === null) {
