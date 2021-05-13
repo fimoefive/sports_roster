@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import {
   Button,
   CardBody,
@@ -20,19 +20,19 @@ const PlayerCard = ({
   setPlayers
 }) => {
   const [editing, setEditing] = useState(false);
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleClick = (type) => {
     switch (type) {
       case 'delete':
-        deletePlayer(firebaseKey)
+        deletePlayer(firebaseKey, user)
           .then(setPlayers);
         break;
       case 'edit':
         setEditing((prevState) => !prevState);
         break;
       case 'view':
-        history.push(`/players/${firebaseKey}`);
+        // history.push(`/players/${firebaseKey}`);
         break;
       default:
         console.warn('nothing selected');
@@ -40,7 +40,7 @@ const PlayerCard = ({
   };
 
   return (
-    <CardBody>
+    <CardBody body className="card text-center" key={firebaseKey} id={uid}>
       <img src={imageUrl} />
       <CardTitle tag="h5">{name}</CardTitle>
       <CardText>Position: {position}</CardText>
@@ -67,7 +67,7 @@ const PlayerCard = ({
 };
 
 PlayerCard.propTypes = {
-  uid: PropTypes.string,
+  uid: PropTypes.string.isRequired,
   user: PropTypes.any,
   firebaseKey: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
