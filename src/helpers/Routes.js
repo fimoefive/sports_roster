@@ -43,7 +43,7 @@ function Routes({ user, players, setPlayers }) {
           <PrivateRoute
             user={user}
             path='/add-player'
-            component={() => <AddPlayer user={user} setPlayers={setPlayers} />}
+            component={() => <AddPlayer user={user} players={players} setPlayers={setPlayers} />}
           />
           <Route path='*' component={NotFound} />
         </Switch>

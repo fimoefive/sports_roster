@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
   Button,
   CardBody,
@@ -20,7 +20,7 @@ const PlayerCard = ({
   setPlayers
 }) => {
   const [editing, setEditing] = useState(false);
-  // const history = useHistory();
+  const history = useHistory();
 
   const handleClick = (type) => {
     switch (type) {
@@ -32,7 +32,7 @@ const PlayerCard = ({
         setEditing((prevState) => !prevState);
         break;
       case 'view':
-        // history.push(`/players/${firebaseKey}`);
+        history.push(`/players/${firebaseKey}`);
         break;
       default:
         console.warn('nothing selected');

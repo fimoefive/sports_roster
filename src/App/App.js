@@ -4,8 +4,8 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../helpers/apiKeys';
 import NavBar from '../components/NavBar';
-import { getPlayers } from '../helpers/data/playerData';
 import Routes from '../helpers/Routes';
+import { getPlayers } from '../helpers/data/playerData';
 import './App.scss';
 
 firebase.initializeApp(firebaseConfig);
@@ -37,7 +37,6 @@ function App() {
 
   return (
     <>
-      {/* <div className='App'> */}
       <h2>Basketball Roster</h2>
       <Router>
         <NavBar user={user} />
