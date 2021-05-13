@@ -8,9 +8,7 @@ import './styles/index.scss';
 
 ReactDOM.render(
   <React.Fragment>
-    {/* <Router> */}
     <App />
-    {/* </Router> */}
   </React.Fragment>,
   document.getElementById('root')
 );
