@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
@@ -32,7 +32,7 @@ const PlayerForm = ({
     }));
   };
 
-  // const history = useHistory();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +49,7 @@ const PlayerForm = ({
       // Short Hand
       addPlayer(player, user).then((response) => {
         setPlayers(response);
-        // history.push('/players');
+        history.push('/players');
       });
 
       // Clears Input fields
