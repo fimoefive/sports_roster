@@ -38,7 +38,7 @@ function Routes({ user, players, setPlayers }) {
           />
           <PrivateRoute
             user={user}
-            path='/player/:firebaseKey'
+            path='/players/:firebaseKey'
             component={SinglePlayer} />
           <PrivateRoute
             user={user}
