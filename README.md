@@ -1,6 +1,17 @@
 
 - [Steps to deploy](https://github.com/nss-nightclass-projects/REACT-Deployment-Netlify)
 
+## LINKS
+
+### [Netlify](https://mjs-sports-roaster.netlify.app)
+
+### [LOOM](https://www.loom.com/share/6260a8b73c5f49f593d87a6837e67263)
+
+### Project Screenshots
+![Basketball Roaster Home](https://user-images.githubusercontent.com/58958998/120895517-e6c6c880-c5e2-11eb-8506-0d6aa6bdb991.png)
+<img width="1680" alt="Basketball Player Cards" src="https://user-images.githubusercontent.com/58958998/120895521-ecbca980-c5e2-11eb-8b9d-bd9abdd9e011.png">
+<img width="1312" alt="Player Form" src="https://user-images.githubusercontent.com/58958998/120895536-0100a680-c5e3-11eb-98ae-17f1276216d7.png">
+
 # Sports Roster
 For this project you will be building a team roster for a sports team.  Pick any sport you want (but ~hockey~ American Football is clearly the best choice).  Theme your project based on the sport.
 
